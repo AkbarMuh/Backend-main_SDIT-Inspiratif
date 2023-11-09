@@ -3,19 +3,20 @@ import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const Guru = db.define('guru',{
-    Nama: DataTypes.STRING,
+const Ortu = db.define('ortu',{
     ID: DataTypes.STRING,
-    Tempat_Tanggal_lahir: DataTypes.STRING,
+    Jenis: DataTypes.STRING,
+    nama: DataTypes.STRING,
+    pekerjaan: DataTypes.STRING,
     Alamat: DataTypes.STRING,
+    pendapatan: DataTypes.STRING,
     Lulusan: DataTypes.STRING,
-    Jurusan: DataTypes.STRING,
-    Nama_Perguruan_Tinggi: DataTypes.STRING,
+    ID_Siswa: DataTypes.STRING,
 },{
     freezeTableName:true
 });
 
-export default Guru;
+export default Ortu;
 
 (async()=>{
     await db.sync();
