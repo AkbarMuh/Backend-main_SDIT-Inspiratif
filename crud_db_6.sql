@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2023 pada 14.10
+-- Waktu pembuatan: 04 Des 2023 pada 14.17
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -50,6 +50,7 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`Nama`, `ID`, `Email`, `Nomor_HP`, `Tempat_Lahir`, `Tanggal_Lahir`, `Alamat`, `Lulusan`, `Jurusan`, `Nama_Perguruan_Tinggi`, `Sertifikat`, `publikasi`, `KK`, `createdAt`, `updatedAt`) VALUES
+('', '', '', '', '', '0000-00-00', '', '', '', '', '-', '-', '-', '2023-12-04 13:11:55', '2023-12-04 13:11:55'),
 ('admin', '0', '0', '0', '', '0000-00-00', '0', '0', '0', '0', '-', '-', '-', '2023-11-04 04:10:54', '2023-11-04 04:10:54'),
 ('Yui', '13012124', 'yui@email.com', '08123456789', 'Bandung', '1990-01-01', 'Jl. Otto Iskandar Dinata, Karanganyar, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40241', 'S1', 'Pendidikan', 'Unpad', '-', '-', 'KK123456', '2023-10-08 10:06:59', '2023-10-08 10:06:59'),
 ('Andika', '13012125', 'andika@email.com', '08234567890', 'Bandung', '1985-05-15', 'Jl. Padang Golf, Sukamiskin, Kec. Arcamanik, Kota Bandung, Jawa Barat 40293', 'S1', 'Pendidikan', 'UI', 'Guru Profesional', 'Mengajar Metode Penelitian', 'KK234567', '2023-10-08 10:06:59', '2023-10-08 10:06:59'),
@@ -152,11 +153,13 @@ INSERT INTO `ortu` (`ID`, `Jenis`, `nama`, `pekerjaan`, `Tempat_Lahir`, `Tanggal
 --
 
 CREATE TABLE `report` (
-  `id_Prestasi` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `jenis` int(11) NOT NULL,
   `nis` int(11) DEFAULT NULL,
   `Nama_Prestasi` varchar(50) DEFAULT NULL,
-  `Keterangan_Prestasi` text NOT NULL DEFAULT '-'
+  `Keterangan_Prestasi` text NOT NULL DEFAULT '-',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -232,7 +235,7 @@ ALTER TABLE `ortu`
 -- Indeks untuk tabel `report`
 --
 ALTER TABLE `report`
-  ADD PRIMARY KEY (`id_Prestasi`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `lomba-nisSiswa` (`nis`);
 
 --
