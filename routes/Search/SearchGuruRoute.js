@@ -49,7 +49,7 @@ router.post('/siswa/',(req,res)=>{
 })
 
 router.post('/kelas/',(req,res)=>{
-    const sql = "SELECT * FROM siswa WHERE Kelas Like '?%'";
+    const sql = "SELECT * FROM siswa WHERE Kelas = '?%'";
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){

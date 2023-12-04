@@ -9,7 +9,8 @@ const Siswa = db.define('siswa',{
     NIS: DataTypes.STRING,
     NIK: DataTypes.STRING,
     No_KartuKeluarga: DataTypes.STRING,
-    Tempat_TanggalLahir: DataTypes.STRING,
+    Tempat_Lahir: DataTypes.STRING,
+    Tanggal_Lahir: DataTypes.STRING,
     Alamat: DataTypes.STRING,
     Tahun_MasukSDIT: DataTypes.STRING,
 },{

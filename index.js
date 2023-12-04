@@ -5,6 +5,7 @@ import SiswaRoute from "./routes/SiswaRoute.js";
 import GuruRoute from "./routes/GuruRoute.js";
 import OrtuRoute from "./routes/OrtuRoute.js";
 import LoginRoute from "./routes/LoginRoute.js";
+import ReportRoute from "./routes/ReportRoute.js";
 import SearchLoginRoute from "./routes/Search/SearchLoginRoute.js"
 import SearchOrtuRoute from "./routes/Search/SearchOrtuRoute.js"
 import SearchSiswaRoute from "./routes/Search/SearchSiswaRoute.js"
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(SiswaRoute);
 app.use(GuruRoute);
 app.use(OrtuRoute);
+app.use(ReportRoute);
 
 app.use('/cariGuru',SearchGuruRoute);
 app.use('/cariOrtu',SearchOrtuRoute);
