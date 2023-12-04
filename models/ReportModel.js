@@ -4,7 +4,7 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const Report = db.define('report',{
-    id_Prestasi: DataTypes.STRING,
+    ID: DataTypes.STRING,
     jenis: DataTypes.STRING,
     nis: DataTypes.STRING,
     Nama_Prestasi: DataTypes.STRING,
