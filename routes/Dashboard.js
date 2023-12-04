@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 })
 
 router.get('/siswa/',(req,res)=>{
-    const sql = "SELECT COUNT(id_siswa) FROM `siswa` WHERE 1;";
+    const sql = "SELECT COUNT(ID) FROM `siswa` WHERE 1;";
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
@@ -25,7 +25,7 @@ router.get('/siswa/',(req,res)=>{
 })
 
 router.get('/guru/',(req,res)=>{
-    const sql = "SELECT COUNT(NIK) FROM `guru` WHERE 1;";
+    const sql = "SELECT COUNT(ID) FROM `guru` WHERE 1;";
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
