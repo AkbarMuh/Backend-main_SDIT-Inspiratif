@@ -5,7 +5,7 @@ const {DataTypes} = Sequelize;
 
 const Siswa = db.define('siswa',{
     ID: DataTypes.STRING,
-    name: DataTypes.STRING,
+    nama: DataTypes.STRING,
     NIS: DataTypes.STRING,
     NIK: DataTypes.STRING,
     No_KartuKeluarga: DataTypes.STRING,
@@ -13,6 +13,12 @@ const Siswa = db.define('siswa',{
     Tanggal_Lahir: DataTypes.STRING,
     Alamat: DataTypes.STRING,
     Tahun_MasukSDIT: DataTypes.STRING,
+    AsalTK	: DataTypes.STRING,
+    Asal_SD	: DataTypes.STRING,
+    Prestasi	: DataTypes.STRING,
+    LinkPrestasi	: DataTypes.STRING,
+    Wali_Kelas	: DataTypes.STRING,
+    kelas: DataTypes.STRING
 },{
     freezeTableName:true
 });
