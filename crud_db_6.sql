@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2023 pada 14.17
+-- Waktu pembuatan: 05 Des 2023 pada 14.11
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `guru` (
-  `Nama` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `ID` varchar(255) NOT NULL COMMENT 'NIK',
   `Email` varchar(20) NOT NULL,
   `Nomor_HP` varchar(11) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `guru` (
 -- Dumping data untuk tabel `guru`
 --
 
-INSERT INTO `guru` (`Nama`, `ID`, `Email`, `Nomor_HP`, `Tempat_Lahir`, `Tanggal_Lahir`, `Alamat`, `Lulusan`, `Jurusan`, `Nama_Perguruan_Tinggi`, `Sertifikat`, `publikasi`, `KK`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `guru` (`nama`, `ID`, `Email`, `Nomor_HP`, `Tempat_Lahir`, `Tanggal_Lahir`, `Alamat`, `Lulusan`, `Jurusan`, `Nama_Perguruan_Tinggi`, `Sertifikat`, `publikasi`, `KK`, `createdAt`, `updatedAt`) VALUES
 ('', '', '', '', '', '0000-00-00', '', '', '', '', '-', '-', '-', '2023-12-04 13:11:55', '2023-12-04 13:11:55'),
 ('admin', '0', '0', '0', '', '0000-00-00', '0', '0', '0', '0', '-', '-', '-', '2023-11-04 04:10:54', '2023-11-04 04:10:54'),
 ('Yui', '13012124', 'yui@email.com', '08123456789', 'Bandung', '1990-01-01', 'Jl. Otto Iskandar Dinata, Karanganyar, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40241', 'S1', 'Pendidikan', 'Unpad', '-', '-', 'KK123456', '2023-10-08 10:06:59', '2023-10-08 10:06:59'),
@@ -92,7 +92,7 @@ INSERT INTO `kelas` (`ID_Kelas`, `WaliKelas`, `NamaKelas`, `Tahun_Masuk`) VALUES
 
 CREATE TABLE `login` (
   `id_Guru` varchar(255) NOT NULL,
-  `Nama` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Role` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -101,7 +101,7 @@ CREATE TABLE `login` (
 -- Dumping data untuk tabel `login`
 --
 
-INSERT INTO `login` (`id_Guru`, `Nama`, `Password`, `Role`) VALUES
+INSERT INTO `login` (`id_Guru`, `nama`, `Password`, `Role`) VALUES
 ('0', 'admin', 'admin', 2),
 ('13012125', 'Andika', '123', 1);
 
@@ -170,7 +170,7 @@ CREATE TABLE `report` (
 
 CREATE TABLE `siswa` (
   `ID` int(255) NOT NULL COMMENT 'id_siswa',
-  `name` varchar(255) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
   `NIS` varchar(255) NOT NULL,
   `NIK` varchar(255) DEFAULT NULL,
   `No_KartuKeluarga` varchar(255) DEFAULT NULL,
@@ -192,7 +192,7 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`ID`, `name`, `NIS`, `NIK`, `No_KartuKeluarga`, `Tempat_lahir`, `Tanggal_Lahir`, `Alamat`, `Tahun_MasukSDIT`, `AsalTK`, `Asal_SD`, `Prestasi`, `LinkPrestasi`, `Wali_Kelas`, `kelas`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `siswa` (`ID`, `nama`, `NIS`, `NIK`, `No_KartuKeluarga`, `Tempat_lahir`, `Tanggal_Lahir`, `Alamat`, `Tahun_MasukSDIT`, `AsalTK`, `Asal_SD`, `Prestasi`, `LinkPrestasi`, `Wali_Kelas`, `kelas`, `createdAt`, `updatedAt`) VALUES
 (1, '1', '1', '1', '1', '1', '2023-12-01', '-1', '1', '-', '-', '-', '-', '2', 1, '2023-12-04 13:44:36', '2023-12-04 13:44:36'),
 (1302003, 'Budi', '1902003', '2302003', '102302003', 'Bandung', '2007-08-01', 'Jl. Cijawura No.12, Cijawura, Kec. Rancaekek, Kota Bandung, Jawa Barat 40266', '2023', 'TK Bunga Indah', 'SDN Cijawura', 'Juara Lomba Cerdas Cermat', 'linkprestasi.com/budi', '13012124', 1, '2023-11-20 09:30:15', '2023-11-26 10:15:45'),
 (1302004, 'Citra', '1902004', '2302004', '102302004', 'Bandung', '2007-12-23', 'Jl. Melodi Indah No.15, Melodika, Kec. Musikal, Kota Bandung, Jawa Barat 40265', '2023', 'TK Harmoni', 'SDN Melodi', 'Peringkat 2 Lomba Mewarnai', 'linkprestasi.com/citra', '13012124', 1, '2023-11-15 13:45:22', '2023-11-26 10:15:45'),
