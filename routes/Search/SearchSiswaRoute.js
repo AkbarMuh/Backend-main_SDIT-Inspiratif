@@ -37,14 +37,14 @@ router.post('/Ortubyid/',(req,res)=>{
 })
 
 router.post('/OrtubyNama/',(req,res)=>{
-    const sql = "SELECT * FROM siswa WHERE name Like ? ";
+    const sql = "SELECT * FROM siswa WHERE nama Like ? ";
     db.query(sql, [req.body.key + '%', req.body.password, req.body.status], (err, data) => {
-        if(err) return res.json({Message: "Server Erorr"})
+        if(err) return res.json({Message: "Server Erorr i"})
         if (data.length > 0){
             const sql1 = "SELECT * FROM ortu WHERE ID_Siswa Like '?%'";
-            db.query(sql1, [data[0].id_siswa, req.body.password, req.body.status], (err, data2) => {
-                if(err) return res.json({Message: "Server Erorr"})
-                if (data2.length > 0){
+            db.query(sql1, [data[0].ID, req.body.password, req.body.status], (err, data2) => {
+                if(err) return res.json({Message: "Server Erorr h"})
+                if (data.length > 0){
                     return res.json({Status: "Success ", Nama_Anak: data,Nama_Ortu: data2 });
                 }else{
                     return res.json({Message: "No Record"});
