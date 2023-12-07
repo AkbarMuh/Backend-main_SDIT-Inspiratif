@@ -50,7 +50,6 @@ router.post('/OrtubyNama/',(req,res)=>{
                     return res.json({Message: "No Record"});
                 }
             })
-                    
         }else{
             return res.json({Message: "No Record"});
         }
