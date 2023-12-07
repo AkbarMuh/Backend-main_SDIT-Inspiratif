@@ -4,7 +4,6 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const Guru = db.define('guru',{
-    ID: DataTypes.STRING,
     nama: DataTypes.STRING,
     Email	: DataTypes.STRING,
     Nomor_HP: DataTypes.STRING,

@@ -4,7 +4,6 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const Siswa = db.define('siswa',{
-    ID: DataTypes.STRING,
     nama: DataTypes.STRING,
     NIS: DataTypes.STRING,
     NIK: DataTypes.STRING,

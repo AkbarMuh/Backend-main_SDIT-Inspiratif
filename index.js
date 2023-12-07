@@ -6,11 +6,13 @@ import GuruRoute from "./routes/GuruRoute.js";
 import OrtuRoute from "./routes/OrtuRoute.js";
 import LoginRoute from "./routes/LoginRoute.js";
 import ReportRoute from "./routes/ReportRoute.js";
+import KelasRoute from "./routes/KelasRoute.js";
 import SearchLoginRoute from "./routes/Search/SearchLoginRoute.js"
 import SearchOrtuRoute from "./routes/Search/SearchOrtuRoute.js"
 import SearchSiswaRoute from "./routes/Search/SearchSiswaRoute.js"
 import SearchGuruRoute from './routes/Search/SearchGuruRoute.js';
 import dashboard from "./routes/Dashboard.js"
+
 
 
 const app = express();
@@ -21,6 +23,7 @@ app.use(SiswaRoute);
 app.use(GuruRoute);
 app.use(OrtuRoute);
 app.use(ReportRoute);
+app.use(KelasRoute)
 
 app.use('/cariGuru',SearchGuruRoute);
 app.use('/cariOrtu',SearchOrtuRoute);

@@ -4,7 +4,6 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const Ortu = db.define('ortu',{
-    ID: DataTypes.STRING,
     Jenis: DataTypes.STRING,
     nama: DataTypes.STRING,
     pekerjaan: DataTypes.STRING,
