@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Des 2023 pada 14.11
+-- Waktu pembuatan: 08 Des 2023 pada 14.30
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -71,18 +71,22 @@ INSERT INTO `guru` (`nama`, `ID`, `Email`, `Nomor_HP`, `Tempat_Lahir`, `Tanggal_
 --
 
 CREATE TABLE `kelas` (
-  `ID_Kelas` int(20) NOT NULL,
+  `ID` int(20) NOT NULL,
+  `Grade_Kelas` int(11) NOT NULL,
   `WaliKelas` varchar(20) DEFAULT NULL,
   `NamaKelas` varchar(20) NOT NULL,
-  `Tahun_Masuk` int(4) NOT NULL
+  `Tahun_Masuk` int(4) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `kelas`
 --
 
-INSERT INTO `kelas` (`ID_Kelas`, `WaliKelas`, `NamaKelas`, `Tahun_Masuk`) VALUES
-(1, '13012125', 'Adam', 2020);
+INSERT INTO `kelas` (`ID`, `Grade_Kelas`, `WaliKelas`, `NamaKelas`, `Tahun_Masuk`, `createdAt`, `updatedAt`) VALUES
+(1, 2, '13012135', 'Adam', 2020, '2023-12-07 03:52:31', '2023-12-07 03:52:31'),
+(2, 3, '13012132', 'Hawa', 2021, '2023-12-07 03:52:31', '2023-12-07 03:52:31');
 
 -- --------------------------------------------------------
 
@@ -162,6 +166,13 @@ CREATE TABLE `report` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `report`
+--
+
+INSERT INTO `report` (`ID`, `jenis`, `nis`, `Nama_Prestasi`, `Keterangan_Prestasi`, `createdAt`, `updatedAt`) VALUES
+(1, 1, 1302004, 'Citra', 'Menang Lomba Memasak', '2023-12-07 03:38:01', '2023-12-07 03:38:01');
+
 -- --------------------------------------------------------
 
 --
@@ -193,11 +204,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`ID`, `nama`, `NIS`, `NIK`, `No_KartuKeluarga`, `Tempat_lahir`, `Tanggal_Lahir`, `Alamat`, `Tahun_MasukSDIT`, `AsalTK`, `Asal_SD`, `Prestasi`, `LinkPrestasi`, `Wali_Kelas`, `kelas`, `createdAt`, `updatedAt`) VALUES
-(1, '1', '1', '1', '1', '1', '2023-12-01', '-1', '1', '-', '-', '-', '-', '2', 1, '2023-12-04 13:44:36', '2023-12-04 13:44:36'),
+(1, '1', '1', '1', '1', '1', '2023-12-01', '-1', '1', '-', '-', '-', '-', '2', 2, '2023-12-04 13:44:36', '2023-12-04 13:44:36'),
 (1302003, 'Budi', '1902003', '2302003', '102302003', 'Bandung', '2007-08-01', 'Jl. Cijawura No.12, Cijawura, Kec. Rancaekek, Kota Bandung, Jawa Barat 40266', '2023', 'TK Bunga Indah', 'SDN Cijawura', 'Juara Lomba Cerdas Cermat', 'linkprestasi.com/budi', '13012124', 1, '2023-11-20 09:30:15', '2023-11-26 10:15:45'),
-(1302004, 'Citra', '1902004', '2302004', '102302004', 'Bandung', '2007-12-23', 'Jl. Melodi Indah No.15, Melodika, Kec. Musikal, Kota Bandung, Jawa Barat 40265', '2023', 'TK Harmoni', 'SDN Melodi', 'Peringkat 2 Lomba Mewarnai', 'linkprestasi.com/citra', '13012124', 1, '2023-11-15 13:45:22', '2023-11-26 10:15:45'),
+(1302004, 'Citra', '1902004', '2302004', '102302004', 'Bandung', '2007-12-23', 'Jl. Melodi Indah No.15, Melodika, Kec. Musikal, Kota Bandung, Jawa Barat 40265', '2023', 'TK Harmoni', 'SDN Melodi', 'Peringkat 2 Lomba Mewarnai', 'linkprestasi.com/citra', '13012124', 2, '2023-11-15 13:45:22', '2023-11-26 10:15:45'),
 (1302005, 'Dian', '1902005', '2302005', '102302005', 'Bandung', '2015-10-23', 'Jl. Harmoni No.8, Harmoni, Kec. Senandung, Kota Bandung, Jawa Barat 40265', '2023', 'TK Melodi Indah', 'SDN Harmoni', 'Mengikuti Olimpiade Matematika', 'linkprestasi.com/dian', '13012125', 1, '2023-11-10 15:20:18', '2023-11-26 10:15:45'),
-(1302006, 'Eva', '1902006', '2302006', '102302006', 'Bandung', '2021-10-23', 'Jl. Senandung No.45, Senandung, Kec. Harmoni, Kota Bandung, Jawa Barat 40265', '2023', 'TK Nada Indah', 'SDN Senandung', 'Juara 3 Lomba Baca Puisi', 'linkprestasi.com/eva', '13012125', 1, '2023-11-25 11:10:33', '2023-11-26 10:15:45'),
+(1302006, 'Eva', '1902006', '2302006', '102302006', 'Bandung', '2021-10-23', 'Jl. Senandung No.45, Senandung, Kec. Harmoni, Kota Bandung, Jawa Barat 40265', '2023', 'TK Nada Indah', 'SDN Senandung', 'Juara 3 Lomba Baca Puisi', 'linkprestasi.com/eva', '13012125', 2, '2023-11-25 11:10:33', '2023-11-26 10:15:45'),
 (1302007, 'Fajar', '1902007', '2302007', '102302007', 'Bandung', '2015-05-23', 'Jl. Harmonisasi No.78, Harmonisasi, Kec. Melodi, Kota Bandung, Jawa Barat 40265', '2023', 'TK Nota Indah', 'SDN Harmonisasi', 'Peserta Lomba Membaca Cepat', 'linkprestasi.com/fajar', '13012125', 1, '2023-11-18 08:55:29', '2023-11-26 10:15:45'),
 (1302008, 'Gita', '1902008', '2302008', '102302008', 'Bandung', '2009-12-23', 'Jl. Melodi Jaya No.32, Melodi Jaya, Kec. Senandung, Kota Bandung, Jawa Barat 40265', '2023', 'TK Gita Sejati', 'SDN Melodi Jaya', 'Juara 1 Lomba Menulis Cerpen', 'linkprestasi.com/gita', '13012125', 1, '2023-11-22 16:40:27', '2023-11-26 10:15:45');
 
@@ -215,7 +226,7 @@ ALTER TABLE `guru`
 -- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
-  ADD PRIMARY KEY (`ID_Kelas`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `Kelas-Wali` (`WaliKelas`);
 
 --
@@ -243,8 +254,8 @@ ALTER TABLE `report`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `guru-siswa` (`Wali_Kelas`),
-  ADD KEY `kelas-siswa` (`kelas`);
+  ADD KEY `kelas-siswa` (`kelas`),
+  ADD KEY `Wali-Siswa` (`Wali_Kelas`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -278,7 +289,8 @@ ALTER TABLE `report`
 -- Ketidakleluasaan untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  ADD CONSTRAINT `kelas-siswa` FOREIGN KEY (`kelas`) REFERENCES `kelas` (`ID_Kelas`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `Wali-Siswa` FOREIGN KEY (`Wali_Kelas`) REFERENCES `guru` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `kelas-siswa` FOREIGN KEY (`kelas`) REFERENCES `kelas` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

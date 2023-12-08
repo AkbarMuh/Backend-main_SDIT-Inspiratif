@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "b1a7738f-9d87-40ca-81d5-6ef9d15d08de",
 		"name": "SDIT Bojong sari",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17776370"
 	},
 	"item": [
@@ -19,7 +19,158 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:5000/dashboard/ortu/"
+				"url": {
+					"raw": "http://localhost:5000/dashboard/ortu/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dashboard",
+						"ortu",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Siswa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:5000/List/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"List",
+						"siswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Guru",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:5000/List/guru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"List",
+						"guru"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Kelas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:5000/List/kelas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"List",
+						"kelas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Ortu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:5000/List/ortu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"List",
+						"ortu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Anak dan Ortu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/ortuanak",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ortuanak"
+					]
+				}
 			},
 			"response": []
 		},
@@ -37,7 +188,18 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/cariGuru/Ortu"
+				"url": {
+					"raw": "http://localhost:5000/cariGuru/Ortu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cariGuru",
+						"Ortu"
+					]
+				}
 			},
 			"response": []
 		},
@@ -55,7 +217,18 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/cariGuru/siswa"
+				"url": {
+					"raw": "http://localhost:5000/cariGuru/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cariGuru",
+						"siswa"
+					]
+				}
 			},
 			"response": []
 		},
@@ -73,28 +246,47 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/cariGuru/kelas"
+				"url": {
+					"raw": "http://localhost:5000/cariGuru/kelas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cariGuru",
+						"kelas"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Siswa id",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "Search - Ortu - Siswa (Cek orang tua bersama anaknya)",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"raw": "{\r\n    \"key\" : \"Dian\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa/1302001"
+				"url": {
+					"raw": "http://localhost:5000/cariSiswa/OrtubyNama",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cariSiswa",
+						"OrtubyNama"
+					]
+				}
 			},
 			"response": []
 		},
@@ -115,7 +307,49 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa"
+				"url": {
+					"raw": "http://localhost:5000/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Siswa id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/siswa/1302001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"1302001"
+					]
+				}
 			},
 			"response": []
 		},
@@ -133,7 +367,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa"
+				"url": {
+					"raw": "http://localhost:5000/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa"
+					]
+				}
 			},
 			"response": []
 		},
@@ -151,7 +395,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/guru"
+				"url": {
+					"raw": "http://localhost:5000/guru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guru"
+					]
+				}
 			},
 			"response": []
 		},
@@ -172,7 +426,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/guru"
+				"url": {
+					"raw": "http://localhost:5000/guru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guru"
+					]
+				}
 			},
 			"response": []
 		},
@@ -193,7 +457,18 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa/1302001"
+				"url": {
+					"raw": "http://localhost:5000/siswa/1302001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"1302001"
+					]
+				}
 			},
 			"response": []
 		},
@@ -211,7 +486,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa"
+				"url": {
+					"raw": "http://localhost:5000/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa"
+					]
+				}
 			},
 			"response": []
 		},
@@ -232,7 +517,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/ortu"
+				"url": {
+					"raw": "http://localhost:5000/ortu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ortu"
+					]
+				}
 			},
 			"response": []
 		},
@@ -253,12 +548,86 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/siswa/1302001"
+				"url": {
+					"raw": "http://localhost:5000/siswa/1302001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"1302001"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Guru Create Copy",
+			"name": "ReportAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guru"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/siswa/1302001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"1302001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report Create",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -271,7 +640,138 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/guru"
+				"url": {
+					"raw": "http://localhost:5000/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kelas all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/kelas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"kelas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kelas id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/siswa/1302001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"1302001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kelas Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cek siswa berdasarkan kelas ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/kelas/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"kelas",
+						"list",
+						""
+					]
+				}
 			},
 			"response": []
 		},
@@ -292,7 +792,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/auth"
+				"url": {
+					"raw": "http://localhost:5000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth"
+					]
+				}
 			},
 			"response": []
 		},
@@ -310,7 +820,18 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/auth/login"
+				"url": {
+					"raw": "http://localhost:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -319,7 +840,18 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:5000/auth/logout"
+				"url": {
+					"raw": "http://localhost:5000/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
 			},
 			"response": []
 		}
