@@ -17,7 +17,7 @@ router.get('/siswa/',(req,res)=>{
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
-            return res.json({Status: "Jumlah Data siswa ", Isi: data });
+            return res.json({Title: "Jumlah Data siswa ", Status: "sucesss", Isi: data });
         }else{
             return res.json({Message: "No Record"});
         }
@@ -29,7 +29,7 @@ router.get('/guru/',(req,res)=>{
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
-            return res.json({Status: "Jumlah Data Orangtua ", Isi: data });
+            return res.json({Title: "Jumlah Data guru ", Status: "sucesss", Isi: data });
         }else{
             return res.json({Message: "No Record"});
         }
@@ -41,13 +41,24 @@ router.get('/ortu/',(req,res)=>{
     db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
-            return res.json({Status: "Jumlah Data Orangtua ", Isi: data });
+            return res.json({Title: "Jumlah Data Orangtua ", Status: "sucesss", Isi: data });
         }else{
             return res.json({Message: "No Record"});
         }
     })
 })
 
+router.get('/kelas/',(req,res)=>{
+    const sql = "SELECT COUNT(ID) FROM `kelas` WHERE 1;";
+    db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
+        if(err) return res.json({Message: "Server Erorr"})
+        if (data.length > 0){
+            return res.json({Title: "Jumlah Data kelas ", Status: "sucesss", Isi: data });
+        }else{
+            return res.json({Message: "No Record"});
+        }
+    })
+})
 
 export default router;
 
