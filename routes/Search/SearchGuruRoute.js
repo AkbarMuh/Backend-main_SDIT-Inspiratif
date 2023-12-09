@@ -13,8 +13,20 @@ const db = mysql.createConnection({
 })
 
 router.post('/id/',(req,res)=>{
-    const sql = "SELECT * FROM guru WHERE NIK Like '?%'";
-    db.query(sql, [req.body.key, req.body.password, req.body.status], (err, data) => {
+    const sql = "SELECT * FROM guru WHERE ID Like '?%'";
+    db.query(sql, [req.body.key], (err, data) => {
+        if(err) return res.json({Message: "Server Erorr"})
+        if (data.length > 0){
+            return res.json({Status: "Success ", Isi: data });
+        }else{
+            return res.json({Message: "No Record"});
+        }
+    })
+})
+
+router.post('/nama/',(req,res)=>{
+    const sql = "SELECT * FROM guru WHERE nama Like ?";
+    db.query(sql, [`%${req.body.key}%`], (err, data) => {
         if(err) return res.json({Message: "Server Erorr"})
         if (data.length > 0){
             return res.json({Status: "Success ", Isi: data });
