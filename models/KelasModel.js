@@ -5,6 +5,7 @@ const {DataTypes} = Sequelize;
 
 const Kelas = db.define('kelas',{
     Grade_Kelas: DataTypes.STRING,
+    Nama_Angkatan: DataTypes.STRING,
     WaliKelas: DataTypes.STRING,
     NamaKelas: DataTypes.STRING,
     Tahun_Masuk: DataTypes.STRING,
