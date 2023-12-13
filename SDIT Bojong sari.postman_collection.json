@@ -617,13 +617,33 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nama\": \"aku nih 111\"\r\n}",
+					"raw": "{\r\n    \"nama\": \"awadadawdawdku nih\", \r\n    \"NIS\": \"11221\", \r\n    \"NIK\": \"44445\", \r\n    \"No_KartuKeluarga\": \"91818181\", \r\n    \"Tempat_Lahir\": \"bdg\", \r\n    \"Tanggal_Lahir\": \"0001-09-12\", \r\n    \"Alamat\": \"aaasssssss\", \r\n    \"Tahun_MasukSDIT\": \"2020\", \r\n    \"AsalTk\": \"-\", \r\n    \"Asal_SD\": \"-\", \r\n    \"Prestasi\": \"silat\", \r\n    \"LinkPrestasi\": \"-\", \r\n    \"NamaAngkatan\": \"2020\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
+				"url": {
+					"raw": "http://localhost:5000/siswa/111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"siswa",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Siswa Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
 				"url": {
 					"raw": "http://localhost:5000/siswa/111",
 					"protocol": "http",
@@ -731,9 +751,38 @@
 			"response": []
 		},
 		{
-			"name": "Guru Create Copy",
+			"name": "Guru Update",
 			"request": {
 				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Jurusan\"\t: \"Informatika\",\r\n    \"Nama_Perguruan_Tinggi\"\t: \"Unpad\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guru/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guru",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guru Delete",
+			"request": {
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -880,6 +929,35 @@
 			"response": []
 		},
 		{
+			"name": "Ortu Update Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nani\",\r\n    \"pekerjaan\"\t: \"Petani\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/ortu/12323123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ortu",
+						"12323123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Kelas all",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -1000,13 +1078,13 @@
 			"response": []
 		},
 		{
-			"name": "Cek siswa berdasarkan kelas ID",
+			"name": "Kelas Upadate Copy",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"key\" : 1\r\n}",
+					"raw": "{\r\n    \"Grade_Kelas\" : 5,\r\n    \"Nama_Angkatan\"\t: \"Ibnusabil\",\r\n    \"NamaKelas\" : \"Umar\",\r\n    \"Tahun_Masuk\" : 2022\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1014,7 +1092,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/kelas/list/",
+					"raw": "http://localhost:5000/kelas/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1022,8 +1100,7 @@
 					"port": "5000",
 					"path": [
 						"kelas",
-						"list",
-						""
+						"12"
 					]
 				}
 			},
