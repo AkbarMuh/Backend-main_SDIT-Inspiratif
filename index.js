@@ -37,4 +37,4 @@ app.get('/',(req, res)=>{console.log('/'); res.send("Hello aku home");});
 
 
 
-app.listen(5000, ()=> console.log('Server up and running...'));
+app.listen(3000, ()=> console.log('Server up and running...'));

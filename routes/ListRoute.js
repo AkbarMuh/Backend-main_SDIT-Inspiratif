@@ -102,43 +102,65 @@ router.get('/kelas/', (req, res) => {
         if (dataKelas.length > 0) {
             const kelasFormattedData = dataKelas.map(row => ({ ...row }));
 
-            const sqlWaliKelas = `
-                SELECT *
-                FROM guru
-                WHERE ID IN (${dataKelas.map(row => row.WaliKelas).join(',')});
-            `;
+            // Check if there are WaliKelas values to include in the WHERE clause
+            const waliKelasIds = dataKelas.map(row => row.WaliKelas).filter(Boolean);
 
-            db.query(sqlWaliKelas, (errWaliKelas, dataWaliKelas) => {
-                if (errWaliKelas) {
-                    console.error(errWaliKelas);
-                    return res.json({ Message: "Server Error" });
-                }
+            if (waliKelasIds.length > 0) {
+                const sqlWaliKelas = `
+                    SELECT *
+                    FROM guru
+                    WHERE ID IN (${waliKelasIds.join(',')});
+                `;
 
-                if (dataWaliKelas.length > 0) {
-                    const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
+                db.query(sqlWaliKelas, (errWaliKelas, dataWaliKelas) => {
+                    if (errWaliKelas) {
+                        console.error(errWaliKelas);
+                        return res.json({ Message: "Server Error" });
+                    }
 
-                    const formattedData = kelasFormattedData.map(row => ({
-                        kelas: {
-                                    ID: row.ID,
-                                    Grade_Kelas: row.Grade_Kelas,
-                                    walikelas: waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas),
-                                    NamaKelas: row.NamaKelas,
-                                    Tahun_Masuk : row.Tahun_Masuk,
-                                    createAt: row.createAt,
-                                    updateAt: row.updateAt
-                                }
-                    }));
+                    if (dataWaliKelas.length > 0) {
+                        const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
 
-                    return res.json({ Status: "Success", Isi: formattedData });
-                } else {
-                    return res.json({ Message: "No Record for WaliKelas" });
-                }
-            });
+                        const formattedData = kelasFormattedData.map(row => ({
+                            kelas: {
+                                ID: row.ID,
+                                Grade_Kelas: row.Grade_Kelas,
+                                walikelas: row.WaliKelas != null
+                                    ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
+                                    : "-",
+                                NamaKelas: row.NamaKelas,
+                                Tahun_Masuk: row.Tahun_Masuk,
+                                createAt: row.createAt,
+                                updateAt: row.updateAt
+                            }
+                        }));
+
+                        return res.json({ Status: "Success", Isi: formattedData });
+                    } else {
+                        return res.json({ Message: "No Record for WaliKelas" });
+                    }
+                });
+            } else {
+                // Handle the case where there are no WaliKelas values
+                const formattedData = kelasFormattedData.map(row => ({
+                    kelas: {
+                        ID: row.ID,
+                        Grade_Kelas: row.Grade_Kelas,
+                        walikelas: "-",
+                        NamaKelas: row.NamaKelas,
+                        Tahun_Masuk: row.Tahun_Masuk,
+                        createAt: row.createAt,
+                        updateAt: row.updateAt
+                    }
+                }));
+                return res.json({ Status: "Success", Isi: formattedData });
+            }
         } else {
             return res.json({ Message: "No Record for Kelas" });
         }
     });
 });
+
 
 
 
