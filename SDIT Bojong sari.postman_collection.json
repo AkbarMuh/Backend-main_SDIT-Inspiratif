@@ -64,12 +64,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/List/siswa",
+					"raw": "http://localhost:3000/List/siswa",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"List",
 						"siswa"
@@ -91,12 +91,12 @@
 					"file": {}
 				},
 				"url": {
-					"raw": "http://localhost:5000/List/guru",
+					"raw": "http://localhost:3000/List/guru",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"List",
 						"guru"
@@ -118,12 +118,12 @@
 					"file": {}
 				},
 				"url": {
-					"raw": "http://localhost:5000/List/kelas",
+					"raw": "http://localhost:3000/List/kelas",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"List",
 						"kelas"
@@ -537,12 +537,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/siswa",
+					"raw": "http://localhost:3000/siswa",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"siswa"
 					]
@@ -677,12 +677,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/guru",
+					"raw": "http://localhost:3000/guru",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"guru"
 					]
@@ -729,7 +729,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 13,\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Jurusan\"\t: \"Hukum\",\r\n    \"Nama_Perguruan_Tinggi\"\t: \"Unpad\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
+					"raw": "{\r\n    \"id\" : 13,\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -737,12 +737,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/guru",
+					"raw": "http://localhost:3000/guru",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"guru"
 					]
@@ -933,22 +933,13 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nani\",\r\n    \"pekerjaan\"\t: \"Petani\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:5000/ortu/12323123",
+					"raw": "http://localhost:3000/ortu/12323123",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"ortu",
 						"12323123"
