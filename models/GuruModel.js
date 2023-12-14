@@ -10,9 +10,7 @@ const Guru = db.define('guru',{
     Tempat_Lahir: DataTypes.STRING,
     Tanggal_Lahir: DataTypes.STRING,
     Alamat: DataTypes.STRING,
-    Lulusan: DataTypes.STRING,
-    Jurusan: DataTypes.STRING,
-    Nama_Perguruan_Tinggi: DataTypes.STRING,
+    Lulusan: DataTypes.STRING,  
     Sertifikat	: DataTypes.STRING,
     publikasi	: DataTypes.STRING,
     KK: DataTypes.STRING
