@@ -108,7 +108,13 @@ router.get('/kelas/', (req, res) => {
 
             if (waliKelasIds.length > 0) {
                 const sqlWaliKelas = `
-                    SELECT *
+                    SELECT 
+                        *,
+                        (
+                            SELECT COUNT(*) 
+                            FROM siswa s 
+                            WHERE s.kelas = k.ID
+                        ) AS banyakSiswa
                     FROM guru
                     WHERE ID IN (${waliKelasIds.join(',')});
                 `;
@@ -139,7 +145,7 @@ router.get('/kelas/', (req, res) => {
                                             : "-",
                                         NamaKelas: row.NamaKelas,
                                         Tahun_Masuk: row.Tahun_Masuk,
-                                        banyakSiswa: banyakSiswa[0]['COUNT(kelas)'],
+                                        banyakSiswa: row.banyakSiswa,
                                         createAt: row.createAt,
                                         updateAt: row.updateAt
                                     }
