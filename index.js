@@ -11,6 +11,7 @@ import SearchLoginRoute from "./routes/Search/SearchLoginRoute.js"
 import SearchOrtuRoute from "./routes/Search/SearchOrtuRoute.js"
 import SearchSiswaRoute from "./routes/Search/SearchSiswaRoute.js"
 import SearchGuruRoute from './routes/Search/SearchGuruRoute.js';
+import SearchKelasRoute from './routes/Search/SearchKelasRoute.js';
 import dashboard from "./routes/Dashboard.js"
 
 
@@ -28,6 +29,7 @@ app.use('/List',ListRoute)
 app.use('/cariGuru',SearchGuruRoute);
 app.use('/cariOrtu',SearchOrtuRoute);
 app.use('/cariSiswa',SearchSiswaRoute);
+app.use('/cariKelas',SearchKelasRoute);
 
 app.use('/auth',LoginRoute);
 app.use('/cari',SearchLoginRoute);

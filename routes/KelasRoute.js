@@ -26,6 +26,4 @@ router.patch('/kelas/:id', updateKelas);
 router.delete('/kelas/:id', deleteKelas);
 
 
-
-
 export default router;

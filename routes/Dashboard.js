@@ -60,6 +60,19 @@ router.get('/kelas/',(req,res)=>{
     })
 })
 
+
+router.get('/Jumlahsiswa/:id',(req,res)=>{
+    const sql = "SELECT COUNT(kelas) FROM `siswa` WHERE kelas = ?;";
+    db.query(sql, [req.params.id], (err, data) => {
+        if(err) return res.json({Message: "Server Erorr"})
+        if (data.length > 0){
+            return res.json({Title: "Jumlah Siswa kelas ", Status: "sucesss", Isi: data });
+        }else{
+            return res.json({Message: "No Record"});
+        }
+    })
+})
+
 export default router;
 
 // db.query("SELECT * FROM login WHERE 1", (err,data)=>{

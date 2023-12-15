@@ -13,7 +13,8 @@ const Guru = db.define('guru',{
     Lulusan: DataTypes.STRING,  
     Sertifikat	: DataTypes.STRING,
     publikasi	: DataTypes.STRING,
-    KK: DataTypes.STRING
+    KK: DataTypes.STRING,
+    KTP: DataTypes.STRING,
 },{
     freezeTableName:true
 });

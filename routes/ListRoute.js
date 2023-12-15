@@ -104,6 +104,7 @@ router.get('/kelas/', (req, res) => {
 
             // Check if there are WaliKelas values to include in the WHERE clause
             const waliKelasIds = dataKelas.map(row => row.WaliKelas).filter(Boolean);
+            const KelasIds = dataKelas.map(row => row.ID);
 
             if (waliKelasIds.length > 0) {
                 const sqlWaliKelas = `
@@ -111,35 +112,54 @@ router.get('/kelas/', (req, res) => {
                     FROM guru
                     WHERE ID IN (${waliKelasIds.join(',')});
                 `;
-
+                        
                 db.query(sqlWaliKelas, (errWaliKelas, dataWaliKelas) => {
                     if (errWaliKelas) {
                         console.error(errWaliKelas);
-                        return res.json({ Message: "Server Error" });
+                        return res.json({ Message: KelasIds });
                     }
-
                     if (dataWaliKelas.length > 0) {
-                        const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
-
-                        const formattedData = kelasFormattedData.map(row => ({
-                            kelas: {
-                                ID: row.ID,
-                                Grade_Kelas: row.Grade_Kelas,
-                                walikelas: row.WaliKelas != null
-                                    ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
-                                    : "-",
-                                NamaKelas: row.NamaKelas,
-                                Tahun_Masuk: row.Tahun_Masuk,
-                                createAt: row.createAt,
-                                updateAt: row.updateAt
+                        const sqlbanyaksiswa = `
+                            SELECT COUNT(kelas)
+                            FROM siswa
+                            WHERE kelas IN (${KelasIds.join(',')});
+                        `;
+                        
+                        db.query(sqlbanyaksiswa, [req.body.key, req.body.password, req.body.status], (err, banyakSiswa) => {
+                            if(err) return res.json({Message: KelasIds})
+                            if (banyakSiswa.length > 0){
+                                const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
+        
+                                const formattedData = kelasFormattedData.map(row => ({
+                                    kelas: {
+                                        ID: row.ID,
+                                        Grade_Kelas: row.Grade_Kelas,
+                                        walikelas: row.WaliKelas != null
+                                            ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
+                                            : "-",
+                                        NamaKelas: row.NamaKelas,
+                                        Tahun_Masuk: row.Tahun_Masuk,
+                                        banyakSiswa: banyakSiswa[0]['COUNT(kelas)'],
+                                        createAt: row.createAt,
+                                        updateAt: row.updateAt
+                                    }
+                                }));
+        
+                                return res.json({ Status: "Success", Isi: formattedData });
+                            } else {
+                                return res.json({ Message: "No Record for WaliKelas" });
                             }
-                        }));
+                        });
 
-                        return res.json({ Status: "Success", Isi: formattedData });
-                    } else {
-                        return res.json({ Message: "No Record for WaliKelas" });
+
+
+
+                    }else{
+                        return res.json({Message: "No Record"});
                     }
-                });
+                })
+
+                
             } else {
                 // Handle the case where there are no WaliKelas values
                 const formattedData = kelasFormattedData.map(row => ({
@@ -160,9 +180,6 @@ router.get('/kelas/', (req, res) => {
         }
     });
 });
-
-
-
 
 router.get('/ortu/', (req, res) => {
     // Query to fetch data from the ortu table
@@ -217,9 +234,6 @@ router.get('/ortu-anak', (req, res) => {
             console.error(err);
             return res.json({ Message: "Server Error" });
         }
-
-        const studentsWithParents = [];
-
         if (students.length > 0) {
             Promise.all(
                 students.map(student => {
