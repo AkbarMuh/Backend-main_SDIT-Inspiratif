@@ -974,7 +974,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : \"12323123\",\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nan11i\",\r\n    \"pekerjaan\"\t: \"ART\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\"\r\n}",
+					"raw": "{\r\n    \"id\" : \"12213\",\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nan11i\",\r\n    \"pekerjaan\"\t: \"ART\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\",\r\n    \"ID_Siswa\" : 1302007\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -982,12 +982,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/ortu",
+					"raw": "http://localhost:3000/ortu",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"ortu"
 					]
@@ -1002,7 +1002,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nani\",\r\n    \"pekerjaan\"\t: \"Petani\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\"\r\n}",
+					"raw": "{\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nani\",\r\n    \"pekerjaan\"\t: \"Petani\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\",\r\n    \"ID_Siswa\" : 1302007\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1010,12 +1010,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/ortu/12323123",
+					"raw": "http://localhost:3000/ortu/12323123",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"ortu",
 						"12323123"
@@ -1142,7 +1142,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Grade_Kelas\" : 5,\r\n    \"Nama_Angkatan\"\t: \"Ibnusabil\",\r\n    \"NamaKelas\" : \"Umar\",\r\n    \"Tahun_Masuk\" : 2022\r\n}",
+					"raw": "{\r\n    \"Grade_Kelas\" : 5,\r\n    \"Nama_Angkatan\"\t: \"Ibnusabil\",\r\n    \"NamaKelas\" : \"Umar\",\r\n    \"Tahun_Masuk\" : 2022,\r\n    \"WaliKelas\" : 13\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1150,15 +1150,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/kelas/12",
+					"raw": "http://localhost:3000/kelas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"kelas",
-						"12"
+						"1"
 					]
 				}
 			},

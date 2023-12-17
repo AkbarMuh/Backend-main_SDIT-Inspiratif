@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Des 2023 pada 10.05
+-- Waktu pembuatan: 17 Des 2023 pada 06.02
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -84,9 +84,8 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`ID`, `Grade_Kelas`, `Nama_Angkatan`, `WaliKelas`, `NamaKelas`, `Tahun_Masuk`, `createdAt`, `updatedAt`) VALUES
-(1, 2, 'Alif', '13012135', 'Adam', 2020, '2023-12-07 03:52:31', '2023-12-07 03:52:31'),
-(2, 3, 'Iqro', '13012132', 'Hawa', 2021, '2023-12-07 03:52:31', '2023-12-07 03:52:31'),
-(1212, 1212, '121212', NULL, '12121', NULL, '2023-12-15 09:19:15', '2023-12-15 09:19:15');
+(1, 5, 'Ibnusabil', '13', 'Umar', 2022, '2023-12-07 03:52:31', '2023-12-17 05:00:43'),
+(2, 3, 'Iqro', '13012132', 'Hawa', 2021, '2023-12-07 03:52:31', '2023-12-07 03:52:31');
 
 -- --------------------------------------------------------
 
@@ -135,7 +134,6 @@ CREATE TABLE `ortu` (
 --
 
 INSERT INTO `ortu` (`ID`, `Jenis`, `nama`, `pekerjaan`, `alamat`, `pendapatan`, `Pendidikan_Terakhir`, `Email`, `Nomor_HP`, `ID_Siswa`, `createdAt`, `updatedAt`) VALUES
-(12, '12', '12', '12', '12', 12, '12', '12', '12', NULL, '2023-12-15 09:20:26', '2023-12-15 09:20:26'),
 (1301211, 'Ibu', 'Anisa', 'Dokter', 'Jl. Suryalaya Indah No.1-3, Cijagra, Kec. Lengkong, Kota Bandung, Jawa Barat 40265', 1500000, 'S1', 'anisa@email.com', '08123456789', 1302003, '2023-11-04 03:16:40', '2023-11-04 02:19:24'),
 (1301212, 'Ayah', 'Andika', 'Arsitek', 'Jl. Margacinta No.98, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287', 2000000, 'S2', 'andika@email.com', '08234567890', 1302003, '2023-11-04 03:20:23', '2023-11-04 03:20:23'),
 (1301213, 'Ibu', 'Taya', 'Guru', 'Jl. Terusan Buah Batu No.62, Batununggal, Kec. Bandung Kidul, Kota Bandung, Jawa Barat 40266', 1800000, 'S1', 'taya@email.com', '08345678901', 1302004, '2023-11-04 03:16:40', '2023-11-04 02:19:24'),
@@ -252,8 +250,18 @@ ALTER TABLE `report`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `kelas-siswa` (`kelas`),
-  ADD KEY `Wali-Siswa` (`Wali_Kelas`);
+  ADD KEY `Wali-Siswa` (`Wali_Kelas`),
+  ADD KEY `kelas-siswa` (`kelas`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -263,7 +271,7 @@ ALTER TABLE `siswa`
 -- Ketidakleluasaan untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
-  ADD CONSTRAINT `Kelas-Wali` FOREIGN KEY (`WaliKelas`) REFERENCES `guru` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `Kelas-Wali` FOREIGN KEY (`WaliKelas`) REFERENCES `guru` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `login`
