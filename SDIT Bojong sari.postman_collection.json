@@ -51,7 +51,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/dashboard/Jumlahsiswa/1",
+					"raw": "http://localhost:3000/dashboard/Jumlahsiswa/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,7 +60,7 @@
 					"path": [
 						"dashboard",
 						"Jumlahsiswa",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -194,6 +194,70 @@
 					"path": [
 						"List",
 						"ortu-Anak"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List WaliKelas dan Siswa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/List/walikelas-siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"List",
+						"walikelas-siswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Kelas dan Siswa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/List/kelas-siswa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"List",
+						"kelas-siswa"
 					]
 				}
 			},
@@ -648,21 +712,9 @@
 		},
 		{
 			"name": "Siswa id",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"key\" : 10\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:5000/siswa/1302001",
 					"protocol": "http",
@@ -693,12 +745,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/siswa",
+					"raw": "http://localhost:3000/siswa",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"siswa"
 					]
@@ -721,12 +773,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/siswa/111",
+					"raw": "http://localhost:3000/siswa/111",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"siswa",
 						"111"
@@ -741,12 +793,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/siswa/111",
+					"raw": "http://localhost:3000/siswa/111",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"siswa",
 						"111"
@@ -825,7 +877,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 13,\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
+					"raw": "{\r\n    \"id\" : 11,\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -853,7 +905,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nama\"\t: \"Kori\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Jurusan\"\t: \"Informatika\",\r\n    \"Nama_Perguruan_Tinggi\"\t: \"Unpad\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
+					"raw": "{\r\n    \"nama\"\t: \"Koria\",\r\n    \"Email\"\t: \"kori@gmail.com\",\r\n    \"Nomor_HP\"\t: \"082281619313\",\r\n    \"Tempat_Lahir\"\t: \"Jepara\",\r\n    \"Tanggal_Lahir\"\t: \"2012-12-2\",\r\n    \"Alamat\"\t: \"Jepara\",\r\n    \"Lulusan\"\t: \"S1\",\r\n    \"Jurusan\"\t: \"Informatika\",\r\n    \"Nama_Perguruan_Tinggi\"\t: \"Unpad\",\r\n    \"Sertifikat\" :\t\"wkwkwkwk\",\r\n    \"publikasi\" :\t\"lwwlwllw\",\r\n    \"KK\" : \"wwkkwkwkw\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -861,12 +913,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/guru/13",
+					"raw": "http://localhost:3000/guru/13",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"guru",
 						"13"
@@ -890,7 +942,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/guru/13",
+					"raw": "http://localhost:5000/guru/11",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -898,7 +950,7 @@
 					"port": "5000",
 					"path": [
 						"guru",
-						"13"
+						"11"
 					]
 				}
 			},
@@ -922,12 +974,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/ortu",
+					"raw": "http://localhost:3000/ortu",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"ortu"
 					]
@@ -974,7 +1026,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : \"12213\",\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nan11i\",\r\n    \"pekerjaan\"\t: \"ART\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"2000000\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\",\r\n    \"ID_Siswa\" : 1302007\r\n}",
+					"raw": "{\r\n    \"id\" : \"12213\",\r\n    \"Jenis\" : \"Wali\",\r\n    \"nama\"    : \"Nan11i\",\r\n    \"pekerjaan\"\t: \"ART\",\r\n    \"Tempat_Lahir\"\t: \"Semarang\",\r\n    \"Tanggal_Lahir\"\t: \"2000-11-09\",\r\n    \"alamat\"\t    : \"Bojong soang\",\r\n    \"pendapatan\"\t: \"adwadawd\",\r\n    \"Pendidikan_Terakhir\"\t: \"S1\",\r\n    \"Email\"\t: \"nani@gmail.com\",\r\n    \"Nomor_HP\"\t: \"08227972691\",\r\n    \"ID_Siswa\" : 1302007\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1010,7 +1062,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/ortu/12323123",
+					"raw": "http://localhost:3000/ortu/12213",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1018,7 +1070,7 @@
 					"port": "3000",
 					"path": [
 						"ortu",
-						"12323123"
+						"12213"
 					]
 				}
 			},

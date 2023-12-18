@@ -6,7 +6,6 @@ const {DataTypes} = Sequelize;
 const Siswa = db.define('siswa',{
     nama: DataTypes.STRING,
     NIS: DataTypes.STRING,
-    NIK: DataTypes.STRING,
     No_KartuKeluarga: DataTypes.STRING,
     Tempat_Lahir: DataTypes.STRING,
     Tanggal_Lahir: DataTypes.STRING,

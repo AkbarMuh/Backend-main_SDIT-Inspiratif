@@ -104,68 +104,44 @@ router.get('/kelas/', (req, res) => {
 
             // Check if there are WaliKelas values to include in the WHERE clause
             const waliKelasIds = dataKelas.map(row => row.WaliKelas).filter(Boolean);
-            const KelasIds = dataKelas.map(row => row.ID);
 
             if (waliKelasIds.length > 0) {
                 const sqlWaliKelas = `
                     SELECT 
-                        *,
-                        (
-                            SELECT COUNT(*) 
-                            FROM siswa s 
-                            WHERE s.kelas = k.ID
-                        ) AS banyakSiswa
-                    FROM guru
-                    WHERE ID IN (${waliKelasIds.join(',')});
+                        g.*
+                    FROM guru g
+                    WHERE g.ID IN (${waliKelasIds.join(',')});
                 `;
+
                         
                 db.query(sqlWaliKelas, (errWaliKelas, dataWaliKelas) => {
                     if (errWaliKelas) {
                         console.error(errWaliKelas);
-                        return res.json({ Message: KelasIds });
+                        return res.json({ Message: "Error in fetching WaliKelas data" });
                     }
                     if (dataWaliKelas.length > 0) {
-                        const sqlbanyaksiswa = `
-                            SELECT COUNT(kelas)
-                            FROM siswa
-                            WHERE kelas IN (${KelasIds.join(',')});
-                        `;
-                        
-                        db.query(sqlbanyaksiswa, [req.body.key, req.body.password, req.body.status], (err, banyakSiswa) => {
-                            if(err) return res.json({Message: KelasIds})
-                            if (banyakSiswa.length > 0){
-                                const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
+                        const waliKelasFormattedData = dataWaliKelas.map(row => ({ ...row }));
         
-                                const formattedData = kelasFormattedData.map(row => ({
-                                    kelas: {
-                                        ID: row.ID,
-                                        Grade_Kelas: row.Grade_Kelas,
-                                        walikelas: row.WaliKelas != null
-                                            ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
-                                            : "-",
-                                        NamaKelas: row.NamaKelas,
-                                        Tahun_Masuk: row.Tahun_Masuk,
-                                        banyakSiswa: row.banyakSiswa,
-                                        createAt: row.createAt,
-                                        updateAt: row.updateAt
-                                    }
-                                }));
-        
-                                return res.json({ Status: "Success", Isi: formattedData });
-                            } else {
-                                return res.json({ Message: "No Record for WaliKelas" });
+                        const formattedData = kelasFormattedData.map(row => ({
+                            kelas: {
+                                ID: row.ID,
+                                Grade_Kelas: row.Grade_Kelas,
+                                walikelas: row.WaliKelas != null
+                                    ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
+                                    : "-",
+                                NamaKelas: row.NamaKelas,
+                                Tahun_Masuk: row.Tahun_Masuk,
+                                //Banyak_Siswa: "Fetch from http://localhost:3000/dashboard/Jumlahsiswa/row.ID",
+                                createAt: row.createAt,
+                                updateAt: row.updateAt
                             }
-                        });
-
-
-
-
-                    }else{
-                        return res.json({Message: "No Record"});
+                        }));
+        
+                        return res.json({ Status: "Success", Isi: formattedData });
+                    } else {
+                        return res.json({ Message: "No Record for WaliKelas" });
                     }
-                })
-
-                
+                });
             } else {
                 // Handle the case where there are no WaliKelas values
                 const formattedData = kelasFormattedData.map(row => ({
@@ -186,6 +162,7 @@ router.get('/kelas/', (req, res) => {
         }
     });
 });
+
 
 router.get('/ortu/', (req, res) => {
     // Query to fetch data from the ortu table
@@ -281,4 +258,102 @@ router.get('/ortu-anak', (req, res) => {
     });
 });
 
+
+router.get('/walikelas-siswa', (req, res) => {
+    const sql = "SELECT * FROM guru";
+    db.query(sql, (err, gurus) => {
+        if (err) {
+            console.error(err);
+            return res.json({ Message: "Server Error" });
+        }
+        if (gurus.length > 0) {
+            Promise.all(
+                gurus.map(guru => {
+                    const sql1 = "SELECT * FROM siswa WHERE Wali_kelas = ?";
+                    return new Promise((resolve, reject) => {
+                        db.query(sql1, [guru.ID], (err, siswa) => {
+                            if (err) {
+                                console.error(err);
+                                reject(err);
+                            } else {
+                                // Include the student only if they have parents
+                                if (siswa.length > 0) {
+                                    resolve({
+                                        WaliKelas: guru,
+                                        Siswa: siswa
+                                    });
+                                } else {
+                                    resolve(null); // Skip this student
+                                }
+                            }
+                        });
+                    });
+                })
+            )
+                .then(result => {
+                    // Filter out null entries (students without parents)
+                    const filteredResult = result.filter(entry => entry !== null);
+                    return res.json({
+                        Status: "Success",
+                        Data: filteredResult
+                    });
+                })
+                .catch(error => {
+                    return res.json({ Message: "Server Error" });
+                });
+        } else {
+            return res.json({ Message: "No Record" });
+        }
+    });
+});
+
+
+
+router.get('/kelas-siswa', (req, res) => {
+    const sql = "SELECT * FROM kelas";
+    db.query(sql, (err, kelass) => {
+        if (err) {
+            console.error(err);
+            return res.json({ Message: "Server Error" });
+        }
+        if (kelass.length > 0) {
+            Promise.all(
+                kelass.map(kelas => {
+                    const sql1 = "SELECT * FROM siswa WHERE kelas = ?";
+                    return new Promise((resolve, reject) => {
+                        db.query(sql1, [kelas.ID], (err, siswa) => {
+                            if (err) {
+                                console.error(err);
+                                reject(err);
+                            } else {
+                                // Include the student only if they have parents
+                                if (siswa.length > 0) {
+                                    resolve({
+                                        Kelas: kelas,
+                                        Siswa: siswa
+                                    });
+                                } else {
+                                    resolve(null); // Skip this student
+                                }
+                            }
+                        });
+                    });
+                })
+            )
+                .then(result => {
+                    // Filter out null entries (students without parents)
+                    const filteredResult = result.filter(entry => entry !== null);
+                    return res.json({
+                        Status: "Success",
+                        Data: filteredResult
+                    });
+                })
+                .catch(error => {
+                    return res.json({ Message: "Server Error" });
+                });
+        } else {
+            return res.json({ Message: "No Record" });
+        }
+    });
+});
 export default router;
