@@ -15,6 +15,7 @@ const Guru = db.define('guru',{
     publikasi	: DataTypes.STRING,
     KK: DataTypes.STRING,
     KTP: DataTypes.STRING,
+    ijazah: DataTypes.STRING,
 },{
     freezeTableName:true
 });

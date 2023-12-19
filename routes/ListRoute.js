@@ -126,6 +126,7 @@ router.get('/kelas/', (req, res) => {
                             kelas: {
                                 ID: row.ID,
                                 Grade_Kelas: row.Grade_Kelas,
+                                Nama_Angkatan: row.Nama_Angkatan,
                                 walikelas: row.WaliKelas != null
                                     ? waliKelasFormattedData.find(wk => wk.ID === row.WaliKelas)
                                     : "-",

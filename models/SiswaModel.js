@@ -15,7 +15,6 @@ const Siswa = db.define('siswa',{
     Asal_SD	: DataTypes.STRING,
     Prestasi	: DataTypes.STRING,
     LinkPrestasi	: DataTypes.STRING,
-    Wali_Kelas	: DataTypes.STRING,
     kelas: DataTypes.STRING
 },{
     freezeTableName:true
